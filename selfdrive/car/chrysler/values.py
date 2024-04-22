@@ -12,7 +12,7 @@ Ecu = car.CarParams.Ecu
 
 
 class ChryslerFlags(IntFlag):
-  HIGHER_MIN_STEERING_SPEED = 1
+  HIGHER_MIN_STEERING_SPEED = 0 #Disabling for 19' Cherokee Kl testing.   Spent some time testing asymmetic speed settings, was not productive.
 
 
 class CAR(StrEnum):
@@ -54,7 +54,7 @@ class CarControllerParams:
     elif CP.carFingerprint in CUSW_CARS:
       self.STEER_DELTA_UP = 4
       self.STEER_DELTA_DOWN = 4
-      self.STEER_MAX = 250  # TODO: re-validate this, Panda is at 261
+      self.STEER_MAX = 250  # TODO: re-validate this, Panda is at 261, 19 Cherokee KL faults at 261.  eps or panda?
     else:
       self.STEER_DELTA_UP = 3
       self.STEER_DELTA_DOWN = 3
